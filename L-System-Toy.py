@@ -3,7 +3,7 @@
 #
 
 try:
-    from Tkinter import *
+    from tkinter import *
 except ImportError:
     raise "Tkinter is not present, install it to continue"
 import copy
@@ -57,7 +57,7 @@ class Turtle:
 def find_bounding_box():
     global canvas_lines
     if(len(canvas_lines) < 1):
-        print "returning"
+        print("returning")
         return
 
     # set some defaults
@@ -260,14 +260,14 @@ presets_button = OptionMenu(presets_frame, presets_choice,
                             "Weed 2",
                             "Weed 3")
 
-presets_go = Button(presets_frame, text = "Go", command = seed_preset)
+presets_go = Button(presets_frame, text = "Set", command = seed_preset)
 presets_menu = Menu(presets_button)
 
 theta_label = Label(base_frame, text = "Angle (Degrees): ")
 theta_entry = Entry(base_frame, width = 10, textvariable = angle)
 
 start_frame = Frame(base_frame, bd = 1, relief = SUNKEN)
-start_label = Label(start_frame, text = "Start string")
+start_label = Label(start_frame, text = "Start String")
 start_entry = Text(start_frame, width = 20, height = 5)
 start_scroll = Scrollbar(start_frame)
 start_entry.config(yscrollcommand = start_scroll.set)
@@ -298,7 +298,7 @@ buttons_frame = Frame(base_frame)
 eval_button = Button(buttons_frame, text = "Evaluate", command = find_result)
 iterate_button = Button(buttons_frame, text = "Iterate", 
                         command = output_to_input)
-canvas = Canvas(base_frame, width = 400, height = 400, bg = "WHITE")
+canvas = Canvas(base_frame, width = 640, height = 640, bg = "WHITE")
 canvas.config(scrollregion = canvas.bbox(ALL))
 base_frame.grid(column = 0, row = 0, sticky = (N, W, E, S))
 start_frame.grid(column = 0, row = 1)
@@ -336,6 +336,6 @@ eval_button.grid(column = 0, row = 0, sticky = (N, W))
 iterate_button.grid(column = 1, row = 0, sticky = (N, W))
 
 canvas.grid(column = 1, row = 0, rowspan = 8,  sticky = (N, S, W, E))
-root.title("Lindenmayer Thing")
+root.title("Simple Lindenmayer Grammar Test")
 
 root.mainloop()
